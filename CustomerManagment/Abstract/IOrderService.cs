@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace GamerManagerDemo.Abstract
 {
-    interface IOrderService
+    public abstract class IOrderService
     {
-        void Sale(Discount discount,Gamer gamer);
+        public void Sale(Discount discount, Gamer gamer)
+        {
+            Console.WriteLine($"{discount.DiscountMsg},{discount.price} Discount applied and  is sold to {gamer.FirstName}");
+        }
     }
 }

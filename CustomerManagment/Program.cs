@@ -4,20 +4,39 @@ using GamerManagerDemo.Concrete;
 using GamerManagerDemo.Entities;
 
 Console.WriteLine("Hello, World!");
-IBaseGamerManager[] gamerManager = { new GamerManager(), new ProductManager()};
-IEntitiesManager[] entitiesManagers = { new Discount { DiscountMsg="Hello",Id=1,price=100}, new Gamer { Id=2,DateofBirth = 1999,FirstName="Emre",LastName="KOC",NationalId="1212323"} };
-IOrderService orderService = new OrderManager();
-orderService.Sale(new Discount { Id=1}, new Gamer { FirstName="Emre"});
-foreach (var game in gamerManager)
+Gamer gamerManager = new Gamer { 
+
+    DateofBirth = new DateTime(1999, 1, 1),
+    FirstName = "Emre",
+    Id = 1,
+    LastName = "Koc",
+    NationalId = "12432113"
+};
+IDiscountManagerService discountManagerService=new ProductManager();
+Discount discount = new Discount
 {
-    
-    game.Add(entitiesManagers[0]);
-    game.Remove(entitiesManagers[0]);
-    game.Updated(entitiesManagers[0]);
+    price = 100,
+    DiscountMsg = "We have big Sale",
+    Id=1,
+};
+//discountManagerService.Add(discount);
+
+
+IOrderService orderService1 = new OrderManager();
+orderService1.Sale(discount , gamerManager);
 
 
 
-}
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -7,10 +7,19 @@ using System.Threading.Tasks;
 
 namespace GamerManagerDemo.Abstract
 {
-    interface IBaseGamerManager 
+    public abstract class BaseGamerManager : IGamerService
     {
-        void Add(IEntitiesManager entities);
-        void Remove(IEntitiesManager entities);
-        void Updated(IEntitiesManager entities);
+        public virtual void Add(Gamer gamer)
+        {
+            Console.WriteLine(gamer.FirstName + " added");
+        }
+        public virtual void Remove(Gamer gamer)
+        {
+            Console.WriteLine(gamer.FirstName + " updated");
+        }
+        public virtual void Update(Gamer gamer)
+        {
+            Console.WriteLine(gamer.FirstName + " deleted");
+        }
     }
 }

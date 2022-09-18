@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace GamerManagerDemo.Abstract
 {
-    public interface IEntitiesManager
+    public class IEntities
     {
-        public int Id { get; set; }
     }
 }
